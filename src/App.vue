@@ -44,7 +44,7 @@ header {
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: hsla(274, 96%, 38%, 1);
   transition: 0.4s;
 }
 
