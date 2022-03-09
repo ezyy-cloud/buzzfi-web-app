@@ -8,9 +8,9 @@ defineProps<{
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>. What's next?
+      BuzzFi is connecting thousands of Zimbabweans to the internet.
+      You have just become part of this growing family. BuzzFi is available 
+      in all these locations.
     </h3>
   </div>
 </template>
