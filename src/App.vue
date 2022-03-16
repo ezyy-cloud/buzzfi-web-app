@@ -5,7 +5,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 <template>
   <header>
-    <a href="https://buzz.ezyy.cloud" style="position: absolute; top: 2vh; left: 0;">
+    <a class="log"  href="https://buzz.ezyy.cloud" style="position: absolute; top: 2vh; left: 0;">
       <img alt="Vue logo" class="logo" src="@/assets/buzz.svg" width="55" height="55" />
     </a>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -15,6 +15,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
       <nav>
         <RouterLink to="/">Locations</RouterLink>
+        <RouterLink to="/vouchers">Vouchers</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
@@ -50,6 +51,7 @@ a,
   color: hsla(274, 96%, 38%, 1);
   transition: 0.4s;
 }
+
 
 @media (hover: hover) {
   a:hover {
@@ -118,5 +120,9 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+
+   a.log, a.log:hover, a.log:focus, a.log:active {
+     background-color: transparent;
+ }
 }
 </style>
