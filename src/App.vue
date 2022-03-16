@@ -5,9 +5,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 <template>
   <header>
-    <a class="log"  href="https://buzz.ezyy.cloud" style="position: absolute; top: 2vh; left: 0;">
-      <img alt="Vue logo" class="logo" src="@/assets/buzz.svg" width="55" height="55" />
-    </a>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -20,8 +17,14 @@ import HelloWorld from '@/components/HelloWorld.vue'
       </nav>
     </div>
   </header>
-
   <RouterView />
+  <footer class="footer">
+<v-row align="center" justify="center">
+    <a class="log"  href="https://buzz.ezyy.cloud">
+      <img alt="Vue logo" class="logo" src="@/assets/buzz.svg" width="55" height="55" />
+    </a>
+    </v-row>
+  </footer>
 </template>
 
 <style>

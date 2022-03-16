@@ -11,7 +11,7 @@ import SupportIcon from './icons/IconSupport.vue'
 
 <main>
       <v-container fill-height fluid>
-        <v-row align="center" justify="center" style="height: 100vh;">
+        <v-row align="center" justify="center">
           <v-col>
   <WelcomeItem>
     <template #icon>
