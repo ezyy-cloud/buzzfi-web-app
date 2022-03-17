@@ -18,13 +18,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
     </div>
   </header>
   <RouterView />
-  <footer class="footer">
-<v-row align="center" justify="center">
-    <a class="log"  href="https://buzz.ezyy.cloud">
-      <img alt="Vue logo" class="logo" src="@/assets/buzz.svg" width="55" height="55" />
-    </a>
-    </v-row>
-  </footer>
 </template>
 
 <style>
