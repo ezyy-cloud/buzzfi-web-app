@@ -9,14 +9,15 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                   <v-radio-group v-model="radioGroup">
-      <v-radio
-        v-for="n in 5"
-        :key="n"
-        :label="`${n} GB`"
-        :value="n"
-      ></v-radio>
-    </v-radio-group> 
+                    <v-radio-group>
+                    <v-radio
+                      v-for="n in 5"
+                      :key="n"
+                      :label="`${n} GB`"
+                      :value="n"
+                    ></v-radio>
+                  </v-radio-group> 
+                  
 
                   <v-text-field
                     id="ecocash"
