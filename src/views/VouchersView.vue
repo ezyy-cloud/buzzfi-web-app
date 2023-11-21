@@ -9,15 +9,16 @@
               </v-toolbar>
               <v-card-text>
                 <div style="font-weight: 700; color: #000">Packages</div>
+                <ul>
                 <li>7 days Unlimited @ $10</li>
                 <li>7 days 5GB @ $3</li>
                 <li>7 days 1GB @ $1</li>
-                
+                </ul>
                 <div style="font-weight: 700; color: #000; margin-top: 15px">Agents</div>
                 <div style="font-weight: 500; color: #000; margin-top: 3px">Harare</div>
-                <li>The Brew (Avenues Mall Liquor Store)</li>
+                <uL><li>The Brew (Avenues Mall Liquor Store)</li></uL>
                 <div style="font-weight: 500; color: #000; margin-top: 3px">Rusape</div>
-                <li>PrintShop</li>
+                <ul><li>PrintShop</li></uL>
               </v-card-text>
             </v-card>
           </v-col>

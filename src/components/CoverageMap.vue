@@ -37,7 +37,7 @@ export default defineComponent({
     ]
 
     watch(() => mapRef.value?.ready, (ready: boolean) => {
-      if (!ready) { return}
+      if (!ready) { return }
 
       // do something with the api using `mapRef.value.api`
       // or with the map instance using `mapRef.value.map`
