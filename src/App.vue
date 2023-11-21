@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/Landing.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/buzz.png" width="225"  />
 
     <div class="wrapper">
-      <HelloWorld msg="Your internet plug!" />
+      <HelloWorld msg="FAST • RELIABLE • CONVENIENT" />
 
       <nav>
         <RouterLink to="/">Locations</RouterLink>
@@ -24,9 +24,9 @@ import HelloWorld from '@/components/HelloWorld.vue'
 @import '@/assets/base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
 
   font-weight: normal;
 }
@@ -34,6 +34,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
 header {
   line-height: 1.5;
   max-height: 100vh;
+  background: white;
+  padding-bottom: 2vh;
 }
 
 .logo {
@@ -44,7 +46,7 @@ header {
 a,
 .green {
   text-decoration: none;
-  color: hsla(274, 96%, 38%, 1);
+  color: #5baef4;
   transition: 0.4s;
 }
 
@@ -63,7 +65,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: var(--vt-c-black-soft);
 }
 
 nav a.router-link-exact-active:hover {
@@ -83,19 +85,22 @@ nav a:first-of-type {
 @media (min-width: 1024px) {
   body {
     display: flex;
-    place-items: center;
+    /* place-items: center; */
   }
 
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
   }
 
   header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   header .wrapper {
@@ -109,7 +114,7 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
+    /* text-align: left; */
     margin-left: -1rem;
     font-size: 1rem;
 

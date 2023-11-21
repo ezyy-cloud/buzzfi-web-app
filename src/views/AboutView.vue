@@ -1,9 +1,20 @@
 <script setup lang="ts">
-import TheWelcome from '@/components/AboutPage.vue'
+import AboutPage from '@/components/AboutPage.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="wrapper">
+    <AboutPage />
   </main>
 </template>
+<style>
+.wrapper {
+  align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+header {
+  padding: 0px;
+}
+</style>
