@@ -16,7 +16,7 @@
           cols="6"
         >
           <router-link class="text-decoration-none" :to="card.route">
-            <v-card class="square-card" ripple>
+            <v-card v-ripple class="square-card">
               <v-card-title class="text-center">
                 <v-icon class="custom-icon">{{ card.icon }}</v-icon> <!-- Displaying the icon -->
               </v-card-title>
