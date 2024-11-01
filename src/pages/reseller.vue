@@ -154,21 +154,7 @@
   const v$ = useVuelidate(rules, state)
 
   // Handle form submission
-  function submitForm () {
-    v$.value.$validate()
-    if (v$.value.$invalid) {
-      console.log('Form has errors.')
-      return
-    }
-    console.log('Form submitted:', state)
-  }
 
-  function clear () {
-    v$.value.$reset()
-    Object.keys(initialState).forEach(key => {
-      state[key] = initialState[key]
-    })
-  }
 </script>
 
 <style>
