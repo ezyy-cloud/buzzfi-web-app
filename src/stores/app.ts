@@ -32,7 +32,6 @@ interface Voucher {
   qos_rate_max_down: number;
 }
 
-
 export const useAppStore = defineStore('app', {
   state: () => ({
     voucher: null as Voucher | null,

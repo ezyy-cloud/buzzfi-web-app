@@ -50,15 +50,7 @@
     </v-card-text>
 
     <!-- Display Voucher Details -->
-    <v-card-text v-if="voucher">
-      <div><strong>Voucher Code:</strong> {{ voucher.voucher_code }}</div>
-      <div><strong>Data Available:</strong> {{ (voucher.qos_usage_quota / 1024).toFixed(2) }} GB</div>
-      <div><strong>Expires On:</strong> {{ new Date(voucher.end * 1000).toLocaleString() }}</div>
-      <div><strong>Duration:</strong> {{ (voucher.duration / 86400).toFixed(2) }} days</div>
-      <div><strong>Data Received:</strong> {{ (voucher.rx_bytes / Math.pow(1024, 3)).toFixed(2) }} GB</div>
-      <div><strong>Data Sent:</strong> {{ (voucher.tx_bytes / Math.pow(1024, 3)).toFixed(2) }} GB</div>
-      <div><strong>IP Address:</strong> {{ voucher.ip }}</div>
-    </v-card-text>
+    <StatusCard v-if="voucher" :voucher="voucher" />
 
     <!-- Display Error Message -->
     <v-card-text v-if="error">
@@ -68,8 +60,9 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { computed, onMounted, ref } from 'vue'
   import { useAppStore } from '@/stores/app' // Adjust the path if needed
+  import StatusCard from '@/components/statusCard.vue'
 
   // Initialize store and reactive data
   const store = useAppStore()
@@ -86,6 +79,13 @@
       await store.fetchVoucher(voucherCode.value)
     }
   }
+
+  // Reset voucher data when the component is mounted
+  onMounted(() => {
+    voucherCode.value = ''
+    store.voucher = null // Clear the voucher data in the store
+    store.error = '' // Clear any error messages
+  })
 </script>
 
 <style scoped>
