@@ -1,13 +1,18 @@
 <template>
   <v-card>
-    <!-- Display formatted voucher code with hyphen after the fifth digit -->
-    <v-card-title class="text-overline my-3">
-      {{ formattedVoucherCode }}
-    </v-card-title>
 
-    <v-card-subtitle class="text-white text-h3 font-weight-bold my-3">
-      {{ progress }}%
-    </v-card-subtitle>
+    <!-- Row container for title and progress percentage -->
+    <div class="d-flex align-end justify-space-between my-3">
+      <!-- Display formatted voucher code with hyphen after the fifth digit -->
+      <v-card-title class="text-overline">
+        {{ formattedVoucherCode }}
+      </v-card-title>
+
+      <!-- Display data usage progress as percentage in the same row -->
+      <v-card-subtitle class="text-white text-h3 font-weight-bold">
+        {{ progress }}%
+      </v-card-subtitle>
+    </div>
 
     <v-card-text>
       <div class="position-absolute text-caption text-white ml-3" :style="`right: calc(${progress} - 32px); z-index: 1`">
