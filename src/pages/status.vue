@@ -52,15 +52,11 @@
     <!-- Display Voucher Details -->
     <v-card-text v-if="voucher">
       <div><strong>Voucher Code:</strong> {{ voucher.voucher_code }}</div>
-      <div><strong>Data Used:</strong> {{ (voucher.qos_usage_quota / 1024).toFixed(2) }} GB</div>
+      <div><strong>Data Available:</strong> {{ (voucher.qos_usage_quota / 1024).toFixed(2) }} GB</div>
       <div><strong>Expires On:</strong> {{ new Date(voucher.end * 1000).toLocaleString() }}</div>
-      <div><strong>MAC Address:</strong> {{ voucher.mac }}</div>
-      <div><strong>Channel:</strong> {{ voucher.channel }}</div>
       <div><strong>Duration:</strong> {{ (voucher.duration / 86400).toFixed(2) }} days</div>
-      <div><strong>Data Received:</strong> {{ (voucher.rx_bytes / (1024 * 1024 * 1024)).toFixed(2) }} GB</div>
-      <div><strong>Data Sent:</strong> {{ (voucher.tx_bytes / (1024 * 1024 * 1024)).toFixed(2) }} GB</div>
-      <div><strong>Authorized By:</strong> {{ voucher.authorized_by }}</div>
-      <div><strong>Access Point MAC (AP MAC):</strong> {{ voucher.ap_mac }}</div>
+      <div><strong>Data Received:</strong> {{ (voucher.rx_bytes / Math.pow(1024, 3)).toFixed(2) }} GB</div>
+      <div><strong>Data Sent:</strong> {{ (voucher.tx_bytes / Math.pow(1024, 3)).toFixed(2) }} GB</div>
       <div><strong>IP Address:</strong> {{ voucher.ip }}</div>
     </v-card-text>
 
