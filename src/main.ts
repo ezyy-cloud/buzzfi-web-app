@@ -1,12 +1,26 @@
-import { createApp } from 'vue'
+/**
+ * main.ts
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
+
+// Plugins
+import { registerPlugins } from '@/plugins'
+
+// Components
 import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
+import VueGoogleMaps from '@fawmi/vue-google-maps'
 
-loadFonts()
+// Composables
+import { createApp } from 'vue'
 
-createApp(App)
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
+const app = createApp(App)
+
+app.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyC-xywoXu2pIerk_NipVwKfQNnurgjSYew', // Replace with your actual Google Maps API key
+  },
+})
+registerPlugins(app)
+
+app.mount('#app')

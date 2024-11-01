@@ -1,31 +1,20 @@
+/**
+ * .eslint.js
+ *
+ * ESLint configuration file.
+ */
+
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: [
-    "plugin:vue/essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-    "@vue/prettier",
-    "@vue/prettier/@typescript-eslint"
+    'vuetify',
+    '@vue/eslint-config-typescript',
+    './.eslintrc-auto-import.json',
   ],
-  parserOptions: {
-    ecmaVersion: 2020
-  },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    'vue/multi-word-component-names': 'off',
   },
-  overrides: [
-    {
-      files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
-      ],
-      env: {
-        mocha: true
-      }
-    }
-  ]
-};
+}
