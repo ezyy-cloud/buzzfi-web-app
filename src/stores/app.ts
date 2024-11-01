@@ -4,11 +4,34 @@ import axios from 'axios'
 
 // Define Voucher Type
 interface Voucher {
-  voucher_code: string;
+  is_returning: boolean;
+  roam_count: number;
   qos_usage_quota: number;
+  channel: number;
+  voucher_code: string;
+  mac: string;
+  radio: string;
+  duration: number;
+  qos_overwrite: boolean;
+  hostname: string | null;
+  rx_bytes: number;
   end: number;
-  // Add other fields based on the API response structure if needed
+  user_agent: string;
+  tx_bytes: number;
+  authorized_by: string;
+  ap_mac: string;
+  ip: string;
+  start: number;
+  user_id: string;
+  bytes: number;
+  site_id: string;
+  name: string;
+  voucher_id: string;
+  _id: string;
+  qos_rate_max_up: number;
+  qos_rate_max_down: number;
 }
+
 
 export const useAppStore = defineStore('app', {
   state: () => ({
