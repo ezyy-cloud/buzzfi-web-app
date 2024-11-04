@@ -44,7 +44,7 @@
   // Initialize the sites store
   const sitesStore = useSitesStore()
   const { fetchSites, sites } = sitesStore
-  const selectedSite = ref(null)
+  const selectedSite = ref()
   // Reference for the map and the initial center
   const mapRef = shallowRef(null)
   const center = ref({ lat: 0, lng: 0 }) // Default center
