@@ -1,6 +1,7 @@
 // Utilities/store/appStore.ts
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { API_URL, TOKEN } from '@/config'
 
 // Define Voucher Type
 interface Voucher {
@@ -32,7 +33,7 @@ interface Voucher {
   qos_rate_max_down: number;
 }
 
-export const useAppStore = defineStore('app', {
+export const useVoucherStore = defineStore('app', {
   state: () => ({
     voucher: null as Voucher | null,
     loading: false as boolean,
@@ -44,8 +45,11 @@ export const useAppStore = defineStore('app', {
       this.loading = true
       this.error = ''
       try {
-        const response = await axios.get(`https://buzzfiapi.af-south-1.elasticbeanstalk.com/api/vouchers/status/${code}`, {
+        const response = await axios.get(`${API_URL}/vouchers/status/${code}`, {
           withCredentials: true, // Include this if you need to send cookies
+          headers: {
+            Authorization: `Bearer ${TOKEN}`,
+          },
         })
         this.voucher = response.data
       } catch (error: any) { // Use 'any' type for error to access response properties

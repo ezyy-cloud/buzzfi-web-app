@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto" elevation="1" max-width="500">
-    <v-card-title class="d-flex align-center">
+    <v-card-title class="d-flex align-center mx-3 my-3">
       <v-btn class="mr-2" icon>
         <v-icon>mdi-wifi</v-icon>
       </v-btn>
@@ -32,8 +32,8 @@
 <script setup lang="ts">
   const cards = [
     { title: 'Buy Voucher', icon: 'mdi-cash', route: '/vouchers' },
-    { title: 'Balance Enquiry', icon: 'mdi-gauge', route: '/status' },
-    { title: 'Locations', icon: 'mdi-map-marker', route: '/locations' },
+    { title: 'Check Balance', icon: 'mdi-gauge', route: '/status' },
+    { title: 'Sites', icon: 'mdi-map-marker', route: '/sites' },
     { title: 'Reseller', icon: 'mdi-store', route: '/reseller' },
     // Add more cards as needed with corresponding routes
   ]

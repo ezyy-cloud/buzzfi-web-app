@@ -12,21 +12,21 @@
     </v-card-text>
 
     <v-card-text>
-      <div class="text-subtitle-2 font-weight-black mb-1">Select Bundle</div>
+      <div class="text-subtitle-2 font-weight-black mb-1">Bundle</div>
       <v-select
         v-model="selectedBundle"
         dense
         :item-props="bundlesProps"
         :items="bundles"
-        label="Bundles"
+        label="Pick a bundle here"
       />
 
       <!-- Phone Number Input -->
-      <div class="text-subtitle-2 font-weight-black mb-1">Enter Phone Number</div>
+      <div class="text-subtitle-2 font-weight-black mb-1">Phone Number</div>
       <v-text-field
         v-model="phoneNumber"
         dense
-        label="Phone Number"
+        label="Enter phone number here"
         placeholder="e.g. 123-456-7890"
         single-line
         type="tel"
@@ -36,7 +36,7 @@
       <v-btn
         block
         class="text-none mb-4"
-        color="indigo-darken-3"
+        color="#05B6FF"
         :disabled="loading"
         :loading="loading"
         size="x-large"

@@ -88,7 +88,7 @@
         <v-btn
           block
           class="text-none mb-4"
-          color="indigo-darken-3"
+          color="#05B6FF"
           :disabled="loading"
           :loading="loading"
           size="x-large"
