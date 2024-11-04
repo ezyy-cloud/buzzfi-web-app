@@ -30,9 +30,8 @@
           @click="openModal(site)"
         />
       </GoogleMap>
-
       <!-- Site Info Modal -->
-      <SiteInfoModal :site="selectedSite" />
+      <SiteInfoModal :site="selectedSite ?? {}" />
     </v-card-text>
   </v-card>
 </template>
