@@ -31,7 +31,7 @@
         />
       </GoogleMap>
       <!-- Site Info Modal -->
-      <SiteInfoModal :site="selectedSite ?? {}" />
+      <SiteInfoModal :on-close="modalClosed" :open-modal="showModal" :site="selectedSite" />
     </v-card-text>
   </v-card>
 </template>
@@ -48,9 +48,16 @@
   // Reference for the map and the initial center
   const mapRef = shallowRef(null)
   const center = ref({ lat: 0, lng: 0 }) // Default center
+  const showModal = ref(false)
+
   // Function to open the modal and pass selected site info
   function openModal (site: any) {
     selectedSite.value = site // Set selected site for the modal
+    showModal.value = true // Open the modal
+  }
+  // Close the modal
+  function modalClosed () {
+    showModal.value = false
   }
   // WiFi icon SVG
   const wifiIconSvg = `

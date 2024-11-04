@@ -92,9 +92,18 @@
 
   const loading = ref(false)
   const selection = ref(1)
+
   const props = defineProps({
     site: {
       type: Object,
+    },
+    openModal: {
+      type: Boolean,
+      default: false,
+    },
+    onClose: {
+      type: Function,
+      default: () => {},
     },
   })
 
@@ -106,21 +115,15 @@
 
   const isVisible = ref(false)
 
-  // Watch for changes in the site prop to open the modal when a new site is selected
-  watch(() => props.site, newSite => {
-    if (newSite) {
-      open() // Open modal when a new site is passed
-    } else {
-      close() // Close modal if no site is passed
+  watch(
+    () => props.openModal, (openModal: boolean) => {
+      isVisible.value = openModal
     }
-  })
-
-  function open () {
-    isVisible.value = true
-  }
+  )
 
   function close () {
     isVisible.value = false
+    props.onClose()
   }
 </script>
 
