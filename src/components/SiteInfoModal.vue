@@ -77,7 +77,7 @@
           color="#05B6FF"
           icon="mdi-phone"
           text="Call"
-          @click="reserve"
+          @click="site && reserve(site.phone)"
         />
 
         <v-btn @click="close">Close</v-btn>
@@ -107,10 +107,15 @@
     },
   })
 
-  const reserve = () => {
+  const reserve = (phoneNumber: string) => {
     loading.value = true
 
-    setTimeout(() => (loading.value = false), 2000)
+    // Simulate reservation logic (optional, can remove if not needed)
+    setTimeout(() => {
+      loading.value = false
+      // Open the dialer
+      window.location.href = `tel:${phoneNumber}`
+    }, 2000)
   }
 
   const isVisible = ref(false)

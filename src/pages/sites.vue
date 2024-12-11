@@ -28,6 +28,7 @@
           :options="{ position: getCoordinates(site.coordinates ?? ''), title: site.name }"
           :pin-options="pinOptions"
           @click="openModal(site)"
+          @load="onMarkerLoad"
         />
       </GoogleMap>
       <!-- Site Info Modal -->
@@ -43,7 +44,8 @@
   import SiteInfoModal from '@/components/SiteInfoModal.vue'
   // Initialize the sites store
   const sitesStore = useSitesStore()
-  const { fetchSites, sites } = sitesStore
+  const { fetchSites } = sitesStore
+  const { sites } = toRefs(sitesStore)
   const selectedSite = ref()
   // Reference for the map and the initial center
   const mapRef = shallowRef(null)
@@ -67,7 +69,10 @@
 
   // Parse the SVG string into a DOM element
   const parser = new DOMParser()
-  const pinSvg = parser.parseFromString(wifiIconSvg, 'image/svg+xml').documentElement
+  const pinSvg = parser.parseFromString(wifiIconSvg.trim(), 'image/svg+xml').documentElement
+  if (!pinSvg) {
+    console.error('Failed to parse WiFi icon SVG')
+  }
 
   // Marker options
   const pinOptions = {
@@ -79,9 +84,14 @@
 
   // Fetch sites on component mount
   onMounted(async () => {
-    await fetchSites()
-    const userLocation = await getUserLocation()
-    center.value = userLocation || center.value // Set user location or default center
+    try {
+      await fetchSites()
+      const userLocation = await getUserLocation()
+      center.value = userLocation || center.value // Set user location or default center
+      refreshMap()
+    } catch (error) {
+      // console.error('Error fetching sites:', error)
+    }
   })
 
   // Function to get user location
@@ -117,12 +127,36 @@
     console.log('Map loaded successfully.')
   }
 
+  function onMarkerLoad (marker: { pinOptions: any; }) {
+    console.log('Marker loaded:', marker)
+    console.log('Pin options:', marker.pinOptions)
+  }
+
   function onMapError (error: any) {
     console.error('Error loading map:', error)
   }
 
+  function updateMarkers (newSites: any[]) {
+    // Logic to update the map markers
+    newSites.forEach((
+      // site: { coordinates: string; }
+    ) => {
+      // const coordinates = getCoordinates(site.coordinates) // Adjust based on your data structure
+      // Add marker creation logic here
+
+      // console.log(`Marker for site at ${coordinates.lat}, ${coordinates.lng}`)
+    })
+  }
+
+  function refreshMap () {
+    if (mapRef.value) {
+      // console.log('Refreshing map...')
+    }
+  }
+
   watch(sites, newSites => {
-    console.log('Sites updated:', newSites)
+    // console.log('Sites updated:', newSites)
+    updateMarkers(newSites)
   })
 
 </script>
